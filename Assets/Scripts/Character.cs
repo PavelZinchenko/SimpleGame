@@ -6,7 +6,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(ICharacterAnimation))]
 public class Character : MonoBehaviour
 {
-    [SerializeField] private Transform _feet;
+    [SerializeField] private Transform _body;
 
     [Range(1, 100)][SerializeField] private float _movementSpeed = 5f;
     [Range(1, 500)][SerializeField] private float _jumpSpeed = 8f;
@@ -14,15 +14,31 @@ public class Character : MonoBehaviour
     [Range(10f, 1000f)][SerializeField] private float _acceleration = 300f;
     [SerializeField] private bool _airControl = false;
 
-    [SerializeField] private UnityEvent _jumpEvent = new();
-    //[SerializeField] private UnityEvent _hitEvent = new();
+    [SerializeField] private UnityEvent _jumped = new();
+    [SerializeField] private UnityEvent _lostGround = new();
+    [SerializeField] private UnityEvent _gotBackToGround = new();
 
     private Rigidbody2D _rigidbody2D;
     private ICharacterAnimation _animation;
 
     private Vector2 _movementDirection;
     private bool _wantToJump;
-    private bool _jumping;
+    private bool _grounded = true;
+
+    public bool Grounded
+    {
+        get => _grounded;
+        private set
+        {
+            if (_grounded == value) return;
+            _grounded = value;
+
+            if (_grounded)
+                _gotBackToGround?.Invoke();
+            else
+                _lostGround?.Invoke();
+        }
+    }
 
     private void Awake()
     {
@@ -35,10 +51,10 @@ public class Character : MonoBehaviour
         var velocity = _rigidbody2D.velocity;
         var targetVelocity = _movementDirection * _movementSpeed;
 
-        if (_wantToJump && !_jumping)
+        if (_wantToJump && Grounded)
             StartCoroutine(DoJump());
 
-        if (_airControl || !_jumping)
+        if (_airControl || Grounded)
             _rigidbody2D.AddForce((targetVelocity - velocity) * Time.fixedDeltaTime * _acceleration);
 
         _animation.Walk(velocity / _movementSpeed);
@@ -54,13 +70,18 @@ public class Character : MonoBehaviour
         _wantToJump = pressed;
     }
 
+    public void FallDown()
+    {
+        StartCoroutine(FallDownAndDie());
+    }
+
     private IEnumerator DoJump()
     {
-        if (_jumping) yield break;
-        _jumping = true;
-        _jumpEvent?.Invoke();
+        if (!Grounded) yield break;
+        Grounded = false;
+        _jumped?.Invoke();
 
-        var initialPosition = _feet.transform.localPosition;
+        var initialPosition = _body.transform.localPosition;
         var position = initialPosition;
         var speed = _jumpSpeed;
 
@@ -68,14 +89,31 @@ public class Character : MonoBehaviour
         {
             position.y += speed * Time.deltaTime;
             speed -= _gravity * Time.deltaTime;
-            _feet.transform.localPosition = position;
+            _body.transform.localPosition = position;
             _animation.Jump(speed, false);
             yield return null;
         }
         while (position.y > initialPosition.y);
 
-        _feet.transform.localPosition = initialPosition;
+        _body.transform.localPosition = initialPosition;
         _animation.Jump(0, true);
-        _jumping = false;
+        Grounded = true;
+    }
+
+    private IEnumerator FallDownAndDie()
+    {
+        if (!Grounded) yield break;
+        Grounded = false;
+        _animation.Jump(-1, false);
+
+        _rigidbody2D.gravityScale = 1f;
+        _airControl = false;
+
+        while (transform.position.y > -10)
+        {
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 }
