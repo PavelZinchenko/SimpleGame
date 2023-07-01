@@ -18,7 +18,7 @@ namespace GameStateMachine.States
             _camera.Initialize(player1, player2);
         }
 
-        private Transform CreatePlayer(Transform prefab, Transform spawnPoint)
+        private static Transform CreatePlayer(Transform prefab, Transform spawnPoint)
         {
             var player = Instantiate(prefab);
             player.position = spawnPoint.position;

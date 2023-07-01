@@ -10,6 +10,7 @@ namespace GameStateMachine
     {
         [SerializeField] private List<Transition> _transitions = new();
         [SerializeField] private UnityEvent _activated = new();
+        [SerializeField] private UnityEvent _passed = new();
 
         public void Enter()
         {
@@ -26,6 +27,7 @@ namespace GameStateMachine
         {
             Assert.IsTrue(gameObject.activeSelf);
 
+            _passed.Invoke();
             gameObject.SetActive(false);
         }
 
