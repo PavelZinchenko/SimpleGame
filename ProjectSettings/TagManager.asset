@@ -15,10 +15,10 @@ TagManager:
   - Block
   - Body
   - EnemyDetection
-  - Hole
+  - Death
   - CheckPoint
-  - 
-  - 
+  - Ground
+  - GroundDetector
   - 
   - 
   - 

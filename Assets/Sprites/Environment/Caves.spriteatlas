@@ -215,6 +215,7 @@ SpriteAtlas:
   - {fileID: 21300066, guid: ca1f1e20c71399f4ab9c815c2528cc1c, type: 3}
   - {fileID: 21300166, guid: ca1f1e20c71399f4ab9c815c2528cc1c, type: 3}
   - {fileID: 21300186, guid: ca1f1e20c71399f4ab9c815c2528cc1c, type: 3}
+  - {fileID: 21300000, guid: 59bae081744a4154c8fa3ee5bf8fa16b, type: 3}
   - {fileID: 21302302, guid: aa9f510a84a336543994cb3b86dea09f, type: 3}
   - {fileID: 21302300, guid: aa9f510a84a336543994cb3b86dea09f, type: 3}
   - {fileID: 21303388, guid: aa9f510a84a336543994cb3b86dea09f, type: 3}
@@ -2044,6 +2045,7 @@ SpriteAtlas:
   - {fileID: 21303398, guid: aa9f510a84a336543994cb3b86dea09f, type: 3}
   - {fileID: 21303238, guid: aa9f510a84a336543994cb3b86dea09f, type: 3}
   - {fileID: 21302304, guid: aa9f510a84a336543994cb3b86dea09f, type: 3}
+  - {fileID: 21300000, guid: 71ff5bca61bd7ab46b9b6cd1a641875f, type: 3}
   m_PackedSpriteNamesToIndex:
   - decorative_28
   - decorative_32
@@ -2222,6 +2224,7 @@ SpriteAtlas:
   - decorative_33
   - decorative_83
   - decorative_93
+  - RW_MarshLand_entrance
   - MainLev2.0_1151
   - MainLev2.0_1150
   - MainLev2.0_1694
@@ -4051,6 +4054,7 @@ SpriteAtlas:
   - MainLev2.0_1699
   - MainLev2.0_1619
   - MainLev2.0_1152
+  - RW_GrassLand_entrance
   m_RenderDataMap: {}
   m_Tag: Caves
   m_IsVariant: 0
