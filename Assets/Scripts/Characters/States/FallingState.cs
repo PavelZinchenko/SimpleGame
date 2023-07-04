@@ -57,6 +57,7 @@ namespace Characters.States
         {
             _altitude = _body.localPosition.y;
             _speed = _initialSpeed;
+            _initialSpeed = 0f;
 
             _animation.SetGrounded(false);
 
