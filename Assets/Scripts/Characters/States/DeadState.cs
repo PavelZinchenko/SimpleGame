@@ -12,7 +12,7 @@ namespace Characters.States
 
         protected override void OnEnter() 
         {
-            Debug.Log("I am dead" + (_objectToDestroy != null ? _objectToDestroy.name : gameObject.name));
+            Debug.Log("I am dead - " + (_objectToDestroy != null ? _objectToDestroy.name : gameObject.name));
 
             if (_objectToDestroy)
                 Destroy(_objectToDestroy);

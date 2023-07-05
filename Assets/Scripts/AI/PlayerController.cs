@@ -1,41 +1,40 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Characters.CharacterStateMachine _character;
+    [SerializeField] private float _screenBorderSize = 2f;
+
+    [Inject] private readonly LevelMap _levelMap;
 
     private Vector2 _movingDirection;
 
-    private Transform _leftBorder;
-    private Transform _rightBorder;
-
     private void Update()
     {
+        var position = transform.position;
+        var cell = _levelMap.WorldToCell(position);
+        _character.Grounded = _levelMap.HasTile(cell);
+        
         var direction = _movingDirection;
-        var x = transform.position.x;
 
-        if (_leftBorder)
-        {
-            var borderX = _leftBorder.position.x;
-            if (x < borderX)
-                direction.x = Mathf.Lerp(direction.x, 1f, Mathf.Clamp01(borderX - x));
-        }
-
-        if (_rightBorder)
-        {
-            var borderX = _rightBorder.position.x;
-            if (x > borderX)
-                direction.x = Mathf.Lerp(direction.x, -1f, Mathf.Clamp01(x - borderX));
-        }
-
+        ProcessBorders(position, ref direction);
         _character.Move(direction);
     }
 
-    public void SetBorders(Transform leftBorder, Transform rightBorder)
+    private void ProcessBorders(Vector2 position, ref Vector2 direction)
     {
-        _leftBorder = leftBorder;
-        _rightBorder = rightBorder;
+        var camera = UnityEngine.Camera.main;
+        var cameraCenter = camera.transform.position;
+        var width = camera.orthographicSize * camera.aspect;
+        var left = cameraCenter.x - width;
+        var right = cameraCenter.x + width;
+
+        if (position.x < left + _screenBorderSize)
+            direction.x = Mathf.Lerp(direction.x, 1f, Mathf.Clamp01(left + _screenBorderSize - position.x));
+        if (position.x > right - _screenBorderSize)
+            direction.x = Mathf.Lerp(direction.x, -1f, Mathf.Clamp01(position.x - right + _screenBorderSize));
     }
 
     public void OnMove(InputAction.CallbackContext context)

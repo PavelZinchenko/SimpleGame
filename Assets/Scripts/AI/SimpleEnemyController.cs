@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class SimpleEnemyController : MonoBehaviour
 {
@@ -8,8 +9,17 @@ public class SimpleEnemyController : MonoBehaviour
     [SerializeField] private LayerMask _targetMask;
     [SerializeField] private Transform _feet;
 
+    [Inject] private readonly LevelMap _levelMap;
+
     private List<Transform> _targets = new();
     private bool _chasing;
+
+    private void Update()
+    {
+        var position = transform.position;
+        var cell = _levelMap.WorldToCell(position);
+        _character.Grounded = _levelMap.HasTile(cell);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -7,8 +7,13 @@ namespace Characters
         [SerializeField] private States.CharacterState _firstState;
 
         private Context _context = new();
-
         private States.CharacterState _currentState;
+
+        public bool Grounded 
+        {
+            get => _context.Grounded;
+            set => _context.Grounded = value;
+        }
 
         private void Start()
         {
@@ -23,16 +28,6 @@ namespace Characters
             var nextState = _currentState.Transition;
             if (nextState != null)
                 Transit(nextState);
-        }
-
-        public void OnLeftGround()
-        {
-            _context.Grounded = false;
-        }
-
-        public void OnSteppedOnGround()
-        {
-            _context.Grounded = true;
         }
 
         public void Move(Vector2 direction)

@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace LevelStateMachine.States
 {
     public class SpawnEnemyState : State
     {
-        [SerializeField] private Transform _enemyPrefab;
+        [SerializeField] private GameObject _enemyPrefab;
         [SerializeField] private Transform[] _spawnPoints = {};
+
+        [Inject] private readonly Services.GameObjectFactory _objectFactory;
 
         private void OnEnable()
         {
@@ -13,10 +16,10 @@ namespace LevelStateMachine.States
                 CreateEnemy(_enemyPrefab, point);
         }
 
-        private static void CreateEnemy(Transform prefab, Transform spawnPoint)
+        private void CreateEnemy(GameObject prefab, Transform spawnPoint)
         {
-            var enemy = Instantiate(prefab);
-            enemy.position = spawnPoint.position;
+            var enemy = _objectFactory.Create(prefab);
+            enemy.transform.position = spawnPoint.position;
         }
     }
 }

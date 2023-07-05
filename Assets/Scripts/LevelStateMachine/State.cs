@@ -8,9 +8,15 @@ namespace LevelStateMachine
     [DisallowMultipleComponent]
     public class State : MonoBehaviour
     {
-        [SerializeField] private List<Transition> _transitions = new();
         [SerializeField] private UnityEvent _activated = new();
         [SerializeField] private UnityEvent _passed = new();
+
+        private List<Transition> _transitions = new();
+
+        private void Awake()
+        {
+            GetComponents<Transition>(_transitions);
+        }
 
         public void Enter()
         {
