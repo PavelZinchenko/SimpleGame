@@ -13,6 +13,8 @@ namespace Characters
         private readonly int _speed = Animator.StringToHash("speed");
         private readonly int _jumpSpeed = Animator.StringToHash("jumpSpeed");
         private readonly int _grounded = Animator.StringToHash("grounded");
+        private readonly int _hit = Animator.StringToHash("hit");
+        private readonly int _dead = Animator.StringToHash("dead");
 
         private void Awake()
         {
@@ -33,6 +35,16 @@ namespace Characters
         public void SetGrounded(bool grounded)
         {
             _animator.SetBool(_grounded, grounded);
+        }
+
+        public void Hit()
+        {
+            _animator.SetTrigger(_hit);
+        }
+
+        public void Die()
+        {
+            _animator.SetBool(_dead, true);
         }
     }
 }

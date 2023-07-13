@@ -393,6 +393,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _objectToDestroy: {fileID: 384386433013628702}
+  _animation: {fileID: 7908748164093155125}
 --- !u!1 &4541426257086377339
 GameObject:
   m_ObjectHideFlags: 0
