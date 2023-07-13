@@ -242,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gravity: 20
   _groundAltitude: 0
-  _minAltitude: -20
+  _minAltitude: -3
   _altitudeChanged:
     m_PersistentCalls:
       m_Calls:
@@ -258,6 +258,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _speedChanged:
+    m_PersistentCalls:
+      m_Calls: []
   _jumped:
     m_PersistentCalls:
       m_Calls:
@@ -513,8 +516,9 @@ MonoBehaviour:
   _exiting:
     m_PersistentCalls:
       m_Calls: []
-  _objectToDestroy: {fileID: 384386433013628702}
   _animation: {fileID: 7908748164093155125}
+  _objectToDestroy: {fileID: 384386433013628702}
+  _delay: 3
 --- !u!1 &4100939714304339261
 GameObject:
   m_ObjectHideFlags: 0

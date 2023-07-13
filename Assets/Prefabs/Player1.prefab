@@ -412,8 +412,9 @@ MonoBehaviour:
   _exiting:
     m_PersistentCalls:
       m_Calls: []
-  _objectToDestroy: {fileID: 8134651800350578421}
   _animation: {fileID: 237668564745998839}
+  _objectToDestroy: {fileID: 8134651800350578421}
+  _delay: 3
 --- !u!1 &7536198463048849342
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +797,21 @@ MonoBehaviour:
       - m_Target: {fileID: 2309154162124503279}
         m_TargetAssemblyTypeName: Character.CharacterShadow, Assembly-CSharp
         m_MethodName: SetAltitude
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _speedChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 237668564745998839}
+        m_TargetAssemblyTypeName: Characters.AnimationController, Assembly-CSharp
+        m_MethodName: Jump
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

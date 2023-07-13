@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace StateMachine.Character.States
 {
     public class DeadState : Base.State<IContext>
     {
-        [SerializeField] private GameObject _objectToDestroy;
         [SerializeField] private Characters.AnimationController _animation;
+        [SerializeField] private GameObject _objectToDestroy;
+        [SerializeField] private float _delay = 3f;
 
         private void OnEnable()
         {
@@ -13,8 +15,14 @@ namespace StateMachine.Character.States
 
             _animation.Die();
 
-            //if (_objectToDestroy)
-            //    Destroy(_objectToDestroy);
+            if (_objectToDestroy)
+                StartCoroutine(WaitThenDestroy());
+        }
+
+        private IEnumerator WaitThenDestroy()
+        {
+            yield return new WaitForSeconds(_delay);
+            Destroy(_objectToDestroy);
         }
     }
 }

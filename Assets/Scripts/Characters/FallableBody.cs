@@ -11,6 +11,7 @@ namespace Characters
         [SerializeField] private float _minAltitude = -20f;
 
         [SerializeField] private UnityEvent<float> _altitudeChanged;
+        [SerializeField] private UnityEvent<float> _speedChanged;
         [SerializeField] private UnityEvent _jumped;
         [SerializeField] private UnityEvent _landed;
         [SerializeField] private UnityEvent _fallingUnderground;
@@ -24,6 +25,12 @@ namespace Characters
         {
             add => (_altitudeChanged ??= new()).AddListener(value);
             remove => _altitudeChanged.RemoveListener(value);
+        }
+
+        public event UnityAction<float> SpeedChanged
+        {
+            add => (_speedChanged ??= new()).AddListener(value);
+            remove => _speedChanged.RemoveListener(value);
         }
 
         public event UnityAction Jumped
@@ -116,7 +123,8 @@ namespace Characters
                 }
 
                 UpdateAltitude();
-    
+                _speedChanged?.Invoke(_speed);
+
                 if (!finished)
                     yield return null;
             }
