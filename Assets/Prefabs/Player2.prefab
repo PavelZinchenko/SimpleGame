@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1419452432734737114, guid: 2b641f378c5c3bf43b128adcc89c69ae, type: 3}
+      propertyPath: _jumpSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639635274776802672, guid: 2b641f378c5c3bf43b128adcc89c69ae, type: 3}
+      propertyPath: _movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4947341709013237315, guid: 2b641f378c5c3bf43b128adcc89c69ae, type: 3}
       propertyPath: _movementSpeed
       value: 4
@@ -181,6 +189,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d58bf9b4bee094b4298c2bb0f598f59e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aa67a3137a1031409e8fbda8e3cde80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

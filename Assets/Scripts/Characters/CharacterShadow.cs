@@ -11,16 +11,15 @@ namespace Characters
         private SpriteRenderer _spriteRenderer;
         private Color _defaultColor;
 
+        public void SetAltitude(float altitude)
+        {
+            SetOpacity(altitude < 0 ? 0 : (_maxAltitude - altitude) / _maxAltitude);
+        }
+
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _defaultColor = _spriteRenderer.color;
-        }
-
-        private void Update()
-        {
-            var altitude = _body.transform.localPosition.y;
-            SetOpacity(altitude < 0 ? 0 : (_maxAltitude - altitude) / _maxAltitude);
         }
 
         private void SetOpacity(float opacity)
