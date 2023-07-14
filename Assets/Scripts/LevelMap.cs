@@ -3,9 +3,9 @@ using UnityEngine.Tilemaps;
 
 public class LevelMap
 {
-    private readonly Tilemap _tilemap;
+    private Tilemap _tilemap;
 
-    public LevelMap(Tilemap tilemap)
+    public void SetGroundMap(Tilemap tilemap)
     {
         _tilemap = tilemap;
     }

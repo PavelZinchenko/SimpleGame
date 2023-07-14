@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+using Zenject;
 
 public class LevelLoader : MonoBehaviour
 {
-    [SerializeField] private string _name;
+    [Inject] ZenjectSceneLoader _sceneLoader;
+
+    [SerializeField] private string[] _names = { };
 
     public void LoadLevel()
     {
-        SceneManager.LoadScene(_name);
+        _sceneLoader.LoadScene(_names[0], UnityEngine.SceneManagement.LoadSceneMode.Single);
+
+        for (var i = 1; i < _names.Length; ++i)
+            _sceneLoader.LoadScene(_names[i], UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 }
