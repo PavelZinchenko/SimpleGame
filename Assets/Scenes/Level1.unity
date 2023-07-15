@@ -4909,7 +4909,7 @@ Tilemap:
       - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
-      m_AnimationSpeed: 9.446938
+      m_AnimationSpeed: 7.6228523
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
