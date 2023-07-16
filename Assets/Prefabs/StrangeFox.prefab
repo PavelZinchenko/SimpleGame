@@ -888,7 +888,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _movementSpeed: 8
-  _acceleration: 200
+  _acceleration: 400
   _rigidbody2D: {fileID: 4961582470015011329}
   _animation: {fileID: 3931091197502595410}
 --- !u!114 &2985264561422567362
@@ -979,10 +979,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4961582470015011329}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+        m_MethodName: set_drag
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _exiting:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4961582470015011329}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+        m_MethodName: set_drag
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3523363089791638351
 MonoBehaviour:
   m_ObjectHideFlags: 0
