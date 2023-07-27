@@ -1169,12 +1169,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d7e5089acc720e429392cf275849e72, type: 2}
   - {fileID: 11400000, guid: c82147b96233e884695055580df63f6a, type: 2}
   - {fileID: 11400000, guid: 62b743fc82245e2469e29fcd74b7fc79, type: 2}
-  - {fileID: 11400000, guid: 4d7e5089acc720e429392cf275849e72, type: 2}
+  - {fileID: 11400000, guid: b6567588eeed1544eabfe558e945fabb, type: 2}
   - {fileID: 11400000, guid: 45bb8e5ca22459e42bd677425f0d5bee, type: 2}
+  - {fileID: 11400000, guid: 89edb9629de610a4389f33778909ef27, type: 2}
   _playerActionMap1: Player1
   _playerActionMap2: Player2
-  _playerCharacterIndex1: 0
-  _playerCharacterIndex2: 4
+  _playerCharacterIndex1: 1
+  _playerCharacterIndex2: 5
 --- !u!1 &1335278441
 GameObject:
   m_ObjectHideFlags: 0
