@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace StateMachine.Level.Transitions
 {
     public class CheckPointTransition : Base.Transition<Context>
     {
-        [SerializeField] private Transform _camera;
+        [Inject] private readonly CameraController _camera;
+
         [SerializeField] private Transform _checkpoint;
         [SerializeField] private bool _canTriggerMultipleTimes;
 
@@ -15,7 +17,7 @@ namespace StateMachine.Level.Transitions
             get
             {
                 if (_triggered && !_canTriggerMultipleTimes) return false;
-                if (_camera.position.x < _checkpoint.position.x) return false;
+                if (_camera.transform.position.x < _checkpoint.position.x) return false;
 
                 _triggered = true;
                 return true;

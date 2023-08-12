@@ -23,7 +23,11 @@ namespace StateMachine.Base
             var nextState = _currentState.GetNextState();
             if (nextState != null)
                 Transit(nextState);
+
+            OnUpdated();
         }
+
+        protected virtual void OnUpdated() { }
 
         private void Transit(State<T> nextState)
         {

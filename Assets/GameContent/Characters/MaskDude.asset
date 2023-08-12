@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f394400231fce54fb2ddaf4f2c8bb2d, type: 3}
   m_Name: MaskDude
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 8064731589918129995, guid: cf88f4f6b71f99b4980285960b3dfa72, type: 3}
+  _prefab: {fileID: 5774462954977196972, guid: cf88f4f6b71f99b4980285960b3dfa72, type: 3}
   _name: Mask Dude
   _icon: {fileID: 21300000, guid: 2d728ff08787c6640bbe4984c7ff018b, type: 3}
-  _hitPoints: 5
+  _hitPoints: 3

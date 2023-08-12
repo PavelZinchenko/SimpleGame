@@ -8,18 +8,18 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - PlayerBody
   - Water
   - UI
-  - Enemy
+  - EnemyBody
   - Block
-  - Body
+  - EnemyFeet
   - EnemyDetection
   - Death
   - CheckPoint
   - Ground
   - GroundDetector
-  - 
+  - PlayerFeet
   - 
   - 
   - 

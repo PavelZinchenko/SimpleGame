@@ -1,20 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Characters;
 
 namespace Ai
 {
-    [RequireComponent(typeof(PlayerInput))]
+    [RequireComponent(typeof(PlayerStats))]
     public class PlayerBehaviour : MonoBehaviour, ICharacterBehaviour
     {
         [SerializeField] private StateMachine.Character.StateMachine _character;
         [SerializeField] private float _screenBorderSize = 2f;
+        [SerializeField] private float _hitCooldown = 1f;
 
-        private PlayerInput _playerInput;
         private Vector2 _movingDirection;
+        private float _lastHitTime;
+        private PlayerStats _playerStats;
 
         private void Awake()
         {
-            _playerInput = GetComponent<PlayerInput>();
+            _playerStats = GetComponent<PlayerStats>();
         }
 
         private void Update()
@@ -25,14 +28,21 @@ namespace Ai
             _character.Move(direction);
         }
 
-        public void SetInputActionMap(string name)
-        {
-            _playerInput.SwitchCurrentActionMap(name);
-        }
-
         public void Die()
         {
+            _playerStats.Health = 0;
             _character.Die();
+        }
+
+        public void Hit()
+        {
+            if (Time.time - _lastHitTime < _hitCooldown) return;
+            _lastHitTime = Time.time;
+
+            if (--_playerStats.Health > 0)
+                _character.Hit();
+            else
+                _character.Die();
         }
 
         public void OnMove(InputAction.CallbackContext context)

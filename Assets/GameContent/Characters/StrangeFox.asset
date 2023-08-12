@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f394400231fce54fb2ddaf4f2c8bb2d, type: 3}
   m_Name: StrangeFox
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4961582470015011330, guid: aff70a88be3398e47a6a6197c4104e5e, type: 3}
+  _prefab: {fileID: 6205377138989805091, guid: 9129191e6cf763f42a3994f04a42081f, type: 3}
   _name: Strange Fox
   _icon: {fileID: -4895819899021127519, guid: 23a9920d0dbae7d4c835620bfc8cf21a, type: 3}
   _hitPoints: 5

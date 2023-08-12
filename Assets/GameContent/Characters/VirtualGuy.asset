@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f394400231fce54fb2ddaf4f2c8bb2d, type: 3}
   m_Name: VirtualGuy
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 8134651800350578416, guid: 2b641f378c5c3bf43b128adcc89c69ae, type: 3}
+  _prefab: {fileID: 7259124375565227607, guid: a7675813dbed5fd4d944c35ba19fa2de, type: 3}
   _name: Virtual Guy
   _icon: {fileID: 21300000, guid: 320f4eb52e227b446830a1f6fd691fca, type: 3}
-  _hitPoints: 5
+  _hitPoints: 3

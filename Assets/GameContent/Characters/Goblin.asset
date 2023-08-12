@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f394400231fce54fb2ddaf4f2c8bb2d, type: 3}
   m_Name: Goblin
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 5822473747545177672, guid: b8999704cd6f80d4085567603f075459, type: 3}
+  _prefab: {fileID: 2090460543871335997, guid: b8999704cd6f80d4085567603f075459, type: 3}
   _name: Goblin
   _icon: {fileID: 1418927062, guid: 53446137c3b740e4189ebc577a045abb, type: 3}
-  _hitPoints: 5
+  _hitPoints: 4

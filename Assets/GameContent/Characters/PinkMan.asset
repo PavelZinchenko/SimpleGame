@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f394400231fce54fb2ddaf4f2c8bb2d, type: 3}
   m_Name: PinkMan
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 208257025327420002, guid: ff973016839f3a54f997357ee7d1b4f1, type: 3}
+  _prefab: {fileID: 4407701843094754949, guid: ff973016839f3a54f997357ee7d1b4f1, type: 3}
   _name: Pink Man
   _icon: {fileID: 21300000, guid: edbf2f282f3feb940b6238d4d339ada4, type: 3}
-  _hitPoints: 5
+  _hitPoints: 3

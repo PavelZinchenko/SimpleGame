@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace StateMachine.Character
 {
@@ -21,6 +22,16 @@ namespace StateMachine.Character
         public void Die()
         {
             _context.MustDie = true;
+        }
+
+        public void Hit()
+        {
+            _context.GotHit = true;
+        }
+
+        protected override void OnUpdated()
+        {
+            _context.GotHit = false;
         }
     }
 }

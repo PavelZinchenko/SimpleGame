@@ -7,6 +7,7 @@ namespace StateMachine.Character
         Vector2 MovementDirection { get; }
         bool WantToJump { get; }
         bool MustDie { get; }
+        bool GotHit { get; }
     }
 
     public class Context : IContext
@@ -14,5 +15,6 @@ namespace StateMachine.Character
         public Vector2 MovementDirection { get; set; }
         public bool WantToJump { get; set; }
         public bool MustDie { get; set; }
+        public bool GotHit { get; set; }
     }
 }
