@@ -579,7 +579,7 @@ MonoBehaviour:
       m_Calls: []
   _animation: {fileID: 237668564745998839}
   _objectToDestroy: {fileID: 8134651800350578421}
-  _delay: 3
+  _delay: 1
 --- !u!1 &7536198463048849342
 GameObject:
   m_ObjectHideFlags: 0

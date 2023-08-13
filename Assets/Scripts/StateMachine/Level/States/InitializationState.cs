@@ -16,7 +16,7 @@ namespace StateMachine.Level.States
             var player1 = _playerSpawner.SpawnPlayer1(_spawnPoint1.position);
             var player2 = _playerSpawner.SpawnPlayer2(_spawnPoint2.position);
 
-            _camera.TrackTargets(player1.transform, player2.transform);
+            _camera.TrackTargets(player1?.transform, player2?.transform);
         }
     }
 }

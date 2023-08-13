@@ -6,7 +6,6 @@ namespace Gui
 {
     public class HitPoints : MonoBehaviour
     {
-        [SerializeField] private Transform _HealthBar;
         [SerializeField] private UnityEngine.UI.Image _icon;
         [SerializeField] private UnityEngine.UI.Image _deadIcon;
 
@@ -52,7 +51,7 @@ namespace Gui
         {
             _hearts.Clear();
 
-            foreach (Transform child in _HealthBar)
+            foreach (Transform child in transform)
             {
                 var item = child.GetComponent<HeartIcon>();
                 if (item == null)
@@ -75,15 +74,8 @@ namespace Gui
 
             for (var i = _hearts.Count; i < maxHealth; ++i)
             {
-                var newItem = Instantiate<HeartIcon>(prefab, _HealthBar);
+                var newItem = Instantiate<HeartIcon>(prefab, transform);
                 _hearts.Add(newItem);
-                //var rectTransform = newItem.GetComponent<RectTransform>();
-                //rectTransform.SetParent(parent);
-                //rectTransform.localScale = Vector3.one;
-                //rectTransform.SetSiblingIndex(++index);
-                //newItem.gameObject.SetActive(true);
-                //Initializer(newItem, enumerator.Current);
-                //count++;
             }
         }
     }

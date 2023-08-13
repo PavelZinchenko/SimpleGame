@@ -9,9 +9,12 @@ namespace Characters
         [SerializeField] private string _name;
         [SerializeField] private Sprite _icon;
         [SerializeField] private int _hitPoints;
+        [SerializeField] private int _price;
 
         public PlayerPrefabInitializer Prefab => _prefab;
         public Sprite Icon => _icon;
+        public string Name => _name;
         public int HitPoints => _hitPoints;
+        public int Price => _price;
     }
 }
