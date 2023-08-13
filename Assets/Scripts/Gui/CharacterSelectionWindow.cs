@@ -44,6 +44,12 @@ namespace Gui
         public void OnMove(InputAction.CallbackContext context)
         {
             if (context.phase != InputActionPhase.Performed) return;
+            
+            if (!_activated)
+            {
+                Activate();
+                return;
+            }
 
             var direction = context.ReadValue<Vector2>();
             if (direction.x < 0 || direction.y < 0)
@@ -74,7 +80,7 @@ namespace Gui
 
         private bool IsLocked(int index)
         {
-            return _characterList[index].Price > 0;
+            return false; //_characterList[index].Price > 0;
         }
 
         private IEnumerator ChangeCharacterIcon()

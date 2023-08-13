@@ -16,13 +16,6 @@ namespace StateMachine.Character.States
             var desiredVelocity = Context.MovementDirection * _movementSpeed;
             _rigidbody2D.AddForce(_acceleration * Time.deltaTime * (desiredVelocity - velocity));
             _animation.Walk(velocity / _movementSpeed);
-
-            //if (Context.MustDie)
-            //    Transition = _deadState;
-            //else if (Context.WantToJump && _jumpingState != null)
-            //    Transition = _jumpingState;
-            //else if (_groundDetector && !_groundDetector.Grounded && _fallingState != null)
-            //    Transition = _fallingState;
         }
     }
 }

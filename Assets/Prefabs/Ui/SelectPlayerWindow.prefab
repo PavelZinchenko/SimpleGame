@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2908164047446948546}
   - component: {fileID: 2908164047446948556}
-  - component: {fileID: 2908164047446948557}
   - component: {fileID: 2908164047446948559}
   - component: {fileID: 2908164047446948553}
   - component: {fileID: 2908164047446948558}
@@ -52,36 +51,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2908164047446948547}
   m_CullTransparentMesh: 1
---- !u!114 &2908164047446948557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2908164047446948547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.7921569, g: 0.7058824, b: 0.48235294, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a4aabb5f7fb357d4098473ba2615a73c, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &2908164047446948559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +68,7 @@ MonoBehaviour:
     m_Right: 32
     m_Top: 32
     m_Bottom: 32
-  m_ChildAlignment: 1
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
@@ -137,18 +106,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2908164047446948558}
         m_TargetAssemblyTypeName: Gui.CharacterSelectionWindow, Assembly-CSharp
-        m_MethodName: Activate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2908164047446948558}
-        m_TargetAssemblyTypeName: Gui.CharacterSelectionWindow, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -179,18 +136,6 @@ MonoBehaviour:
     m_ActionName: Player1/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2908164047446948558}
-        m_TargetAssemblyTypeName: Gui.CharacterSelectionWindow, Assembly-CSharp
-        m_MethodName: Activate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2908164047446948558}
         m_TargetAssemblyTypeName: Gui.CharacterSelectionWindow, Assembly-CSharp
         m_MethodName: OnMove
@@ -431,7 +376,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2908164047513974098}
-  - component: {fileID: 2908164047513974111}
   - component: {fileID: 2908164047513974110}
   m_Layer: 5
   m_Name: Panel
@@ -462,26 +406,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2908164047513974111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2908164047513974099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: 1
-  m_FlexibleHeight: 1
-  m_LayoutPriority: 1
 --- !u!114 &2908164047513974110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,8 +442,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2908164047681956911}
   - component: {fileID: 2908164047681956910}
+  - component: {fileID: 4965691954470897271}
+  - component: {fileID: 4322709398947596526}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,10 +488,48 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: -1
+  m_PreferredHeight: 400
   m_FlexibleWidth: 1
-  m_FlexibleHeight: 1
+  m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!222 &4965691954470897271
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2908164047681956908}
+  m_CullTransparentMesh: 1
+--- !u!114 &4322709398947596526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2908164047681956908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 232e64d0978bf6b4294dfebcf208e098, type: 2}
+  m_Color: {r: 0.7921569, g: 0.7058824, b: 0.48235294, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a4aabb5f7fb357d4098473ba2615a73c, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2908164047753203014
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,14 +542,13 @@ GameObject:
   - component: {fileID: 2908164047753203021}
   - component: {fileID: 2908164047753203010}
   - component: {fileID: 2908164047753203011}
-  - component: {fileID: 2908164047753203008}
   m_Layer: 5
   m_Name: PressAnyKeyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2908164047753203009
 RectTransform:
   m_ObjectHideFlags: 0
@@ -601,11 +564,11 @@ RectTransform:
   m_Father: {fileID: 2908164047446948546}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 331.9257, y: -329.46228}
-  m_SizeDelta: {x: 599.8514, y: 508.50455}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &2908164047753203021
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -724,26 +687,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2908164047753203008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2908164047753203014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: 1
-  m_FlexibleHeight: 1
-  m_LayoutPriority: 1
 --- !u!1 &2908164047865391769
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +699,7 @@ GameObject:
   - component: {fileID: 2908164047865391770}
   - component: {fileID: 2908164047865391771}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -780,7 +723,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -64, y: -64}
+  m_SizeDelta: {x: -96, y: -96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2908164047865391770
 CanvasRenderer:
@@ -803,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
