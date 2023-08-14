@@ -11,12 +11,14 @@ namespace Gui
     {
         [SerializeField] private GameObject _pressAnyKeyLabel;
         [SerializeField] private GameObject _selectionPanel;
+        [SerializeField] private GameObject _lockedIcon;
         [SerializeField] private Image _characterIcon;
         [SerializeField] private TMPro.TMP_Text _characterName;
         [SerializeField] private Characters.PlayableCharacterList _characterList;
         [SerializeField] private float _animationSpeed = 5;
 
         [SerializeField] private UnityEvent<int> _characterChanged;
+        [SerializeField] private UnityEvent _lockedCharacterSelected;
 
         private const string _hiddenCharacterName = "???";
 
@@ -66,10 +68,13 @@ namespace Gui
             _characterIndex = newIndex;
             if (IsLocked(newIndex))
             {
+                _lockedIcon.SetActive(true);
                 _characterName.text = _hiddenCharacterName;
+                _lockedCharacterSelected?.Invoke();
             }
             else
             {
+                _lockedIcon.SetActive(false);
                 _characterName.text = _characterList[newIndex].Name;
                 _characterChanged?.Invoke(newIndex);
             }
@@ -80,7 +85,7 @@ namespace Gui
 
         private bool IsLocked(int index)
         {
-            return false; //_characterList[index].Price > 0;
+            return _characterList[index].Price > 0;
         }
 
         private IEnumerator ChangeCharacterIcon()

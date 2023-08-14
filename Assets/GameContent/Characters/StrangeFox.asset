@@ -16,4 +16,4 @@ MonoBehaviour:
   _name: Strange Fox
   _icon: {fileID: -4895819899021127519, guid: 23a9920d0dbae7d4c835620bfc8cf21a, type: 3}
   _hitPoints: 5
-  _price: 100
+  _price: 50
