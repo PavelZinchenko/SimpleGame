@@ -28,10 +28,9 @@ public class CameraController : MonoBehaviour
         transform.localPosition = cameraPosition;
     }
 
-    public void TrackTargets(params Transform[] players)
+    public void TrackTarget(GameObject target)
     {
-        _targets.Clear();
-        _targets.AddRange(players);
+        _targets.Add(target.transform);
     }
 
     private bool TryGetTargetPosition(out Vector2 position)
