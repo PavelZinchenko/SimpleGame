@@ -5,17 +5,19 @@ namespace Installers
 {
     public class LevelBaseInstaller : MonoInstaller<LevelBaseInstaller>
     {
-        [SerializeField] private PlayerSpawner _playerSpawner;
-        [SerializeField] private Model.GameSettings _gameSettings;
-        [SerializeField] private Gui.Wallet _wallet;
+        [SerializeField] private Settings.Characters _characters;
+        [SerializeField] private Settings.PlayerWallet _playerWallet;
+        [SerializeField] private Gui.WalletPanel _wallet;
+        [SerializeField] private Gui.GameOverPanel _gameOverPanel;
+        [SerializeField] private CharacterSpawner _characterSpawner;
 
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<Services.GameObjectFactory>().AsCached();
-            Container.BindInterfacesAndSelfTo<LevelMap>().AsSingle();
-            Container.Bind<PlayerSpawner>().FromInstance(_playerSpawner);
-            Container.Bind<Model.GameSettings>().FromInstance(_gameSettings);
-            Container.Bind<Gui.Wallet>().FromInstance(_wallet);
+            Container.Bind<Settings.Characters>().FromInstance(_characters);
+            Container.Bind<Settings.PlayerWallet>().FromInstance(_playerWallet);
+            Container.Bind<Gui.WalletPanel>().FromInstance(_wallet);
+            Container.Bind<Gui.GameOverPanel>().FromInstance(_gameOverPanel);
+            Container.Bind<CharacterSpawner>().FromInstance(_characterSpawner);
         }
     }
 }

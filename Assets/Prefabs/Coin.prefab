@@ -406,7 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f01244989c38847b3b5d8f5f729067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationTime: 0.25
+  _smoothTime: 0.5
+  _minDistanceToWallet: 0.5
   _collider: {fileID: 7485674641521774433}
   _animator: {fileID: 5947440310847345706}
 --- !u!1 &7089206030780492892
@@ -578,7 +579,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
+      scalar: 0.5
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -1276,7 +1277,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 10
       maxCurve:
         serializedVersion: 2

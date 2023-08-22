@@ -725,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a687d18b238df4d9bff5ace0acb23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _groundDetector: {fileID: 3908640747868887267}
 --- !u!50 &8134651800350578419
 Rigidbody2D:
   serializedVersion: 4
@@ -835,6 +836,46 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: da1fd14b-a7c9-488b-9d61-94896de6b6b4
     m_ActionName: Player2/Jump[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ebd6fbea-6104-4608-ad36-108455ee74f8
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e56f54b4-163d-49b8-a867-6851e5e7cac6
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 40640b68-4712-4800-9473-94489af81bd2
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f8b9a4b7-0807-4422-a0e0-1dcc6a0648d1
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 95805f92-9c9a-4a2b-a9eb-30b4f571f2c1
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8046c13e-3340-47aa-86f7-302d18b05f8e
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: db20b300-ff36-451c-a1eb-0f527ae7c270
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1868db46-d3ba-4b33-8389-c02026b78441
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5b0dcc4c-ee56-4889-9e9e-890abb787f3c
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 302b76c4-6c92-4995-96b9-3ed105f9fe2f
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player1

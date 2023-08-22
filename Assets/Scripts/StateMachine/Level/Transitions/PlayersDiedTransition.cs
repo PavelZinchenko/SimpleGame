@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Characters;
 
 namespace StateMachine.Level.Transitions
 {
@@ -7,9 +8,9 @@ namespace StateMachine.Level.Transitions
     {
         private List<GameObject> _players = new();
 
-        public void OnPlayerCreated(GameObject player)
+        public void OnCharacterCreated(CharacterConfigurator player)
         {
-            _players.Add(player);
+            _players.Add(player.gameObject);
         }
 
         public override bool NeedTransit 

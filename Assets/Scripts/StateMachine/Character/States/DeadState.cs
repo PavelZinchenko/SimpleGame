@@ -13,6 +13,7 @@ namespace StateMachine.Character.States
         {
             Debug.Log("I am dead - " + (_objectToDestroy != null ? _objectToDestroy.name : gameObject.name));
 
+            Context.Callback?.OnDied();
             _animation.Die();
 
             if (_objectToDestroy)

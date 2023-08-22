@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace StateMachine.Character
 {
@@ -8,6 +7,11 @@ namespace StateMachine.Character
         private readonly Context _context = new();
 
         protected override IContext Context => _context;
+
+        public void SetCallback(ICallback callback)
+        {
+            _context.Callback = callback;
+        }
 
         public void Move(Vector2 direction)
         {

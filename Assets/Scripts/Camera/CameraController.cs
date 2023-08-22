@@ -9,6 +9,8 @@ public class CameraController : MonoBehaviour
 
     public float FixedSpeedX { get; set; }
     public bool TrackingDisabled { get; set; }
+    public void Freeze() => enabled = false;
+    public void Unfreeze() => enabled = true;
 
     private void Update()
     {
@@ -28,7 +30,7 @@ public class CameraController : MonoBehaviour
         transform.localPosition = cameraPosition;
     }
 
-    public void TrackTarget(GameObject target)
+    public void TrackTarget(Component target)
     {
         _targets.Add(target.transform);
     }

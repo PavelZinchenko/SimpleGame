@@ -8,6 +8,13 @@ namespace StateMachine.Character
         bool WantToJump { get; }
         bool MustDie { get; }
         bool GotHit { get; }
+        ICallback Callback { get; }
+    }
+
+    public interface ICallback
+    {
+        void OnFellDown();
+        void OnDied();
     }
 
     public class Context : IContext
@@ -16,5 +23,6 @@ namespace StateMachine.Character
         public bool WantToJump { get; set; }
         public bool MustDie { get; set; }
         public bool GotHit { get; set; }
+        public ICallback Callback { get; set; }
     }
 }

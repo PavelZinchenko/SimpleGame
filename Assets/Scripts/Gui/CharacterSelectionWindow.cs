@@ -1,26 +1,30 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
+using Zenject;
 
 namespace Gui
 {
-    [RequireComponent(typeof(PlayerInput))]
     public class CharacterSelectionWindow : MonoBehaviour
     {
-        [SerializeField] private GameObject _pressAnyKeyLabel;
+        [Inject] private readonly Settings.PlayerWallet _playerWallet;
+        [Inject] private readonly Settings.Characters _characters;
+
+        [SerializeField] private PressAnyKeyLabel _pressAnyKeyLabel;
         [SerializeField] private GameObject _selectionPanel;
-        [SerializeField] private GameObject _lockedIcon;
+        [SerializeField] private GameObject _lockedPanel;
         [SerializeField] private Image _characterIcon;
         [SerializeField] private TMPro.TMP_Text _characterName;
+        [SerializeField] private TMPro.TMP_Text _priceText;
         [SerializeField] private Characters.PlayableCharacterList _characterList;
+
+        [SerializeField] private Settings.PlayerId _playerId;
         [SerializeField] private float _animationSpeed = 5;
+        [SerializeField] private string _hiddenCharacterName = "???";
 
-        [SerializeField] private UnityEvent<int> _characterChanged;
-        [SerializeField] private UnityEvent _lockedCharacterSelected;
-
-        private const string _hiddenCharacterName = "???";
+        [SerializeField] private UnityEvent<int> _characterSelected;
 
         private bool _activated;
         private bool _isCoroutineRunning;
@@ -28,64 +32,66 @@ namespace Gui
 
         private void Start()
         {
-            _pressAnyKeyLabel.SetActive(true);
+            _pressAnyKeyLabel.gameObject.SetActive(true);
             _selectionPanel.SetActive(false);
         }
 
         public void Activate()
         {
-            if (_activated) return;
-            _activated = true;
+            if (!_activated)
+            {
+                _activated = true;
 
-            _pressAnyKeyLabel.SetActive(false);
-            _selectionPanel.SetActive(true);
+                _pressAnyKeyLabel.gameObject.SetActive(false);
+                _selectionPanel.SetActive(true);
 
-            SelectCharacter(0);
+                SelectCharacter(0);
+
+                return;
+            }
+
+            UnlockCharacter();
         }
 
         public void OnMove(InputAction.CallbackContext context)
         {
             if (context.phase != InputActionPhase.Performed) return;
-            
-            if (!_activated)
-            {
-                Activate();
-                return;
-            }
+            if (!_activated) return;
 
             var direction = context.ReadValue<Vector2>();
             if (direction.x < 0 || direction.y < 0)
-                SelectCharacter(_characterIndex - 1);
+                SelectCharacter(Repeat(_characterIndex - 1, _characterList.Count));
             else if (direction.x > 0 || direction.y > 0)
-                SelectCharacter(_characterIndex + 1);
+                SelectCharacter(Repeat(_characterIndex + 1, _characterList.Count));
         }
 
         private void SelectCharacter(int index)
         {
-            var newIndex = Mathf.Clamp(index, 0, _characterList.Count - 1);
-            if (newIndex == _characterIndex) return;
+            _characterIndex = Mathf.Clamp(index, 0, _characterList.Count - 1);
+            var character = _characterList[_characterIndex];
 
-            _characterIndex = newIndex;
-            if (IsLocked(newIndex))
+            if (_characters.IsLocked(_characterIndex))
             {
-                _lockedIcon.SetActive(true);
+                _lockedPanel.SetActive(true);
+                _priceText.text = character.Price.ToString();
                 _characterName.text = _hiddenCharacterName;
-                _lockedCharacterSelected?.Invoke();
             }
             else
             {
-                _lockedIcon.SetActive(false);
-                _characterName.text = _characterList[newIndex].Name;
-                _characterChanged?.Invoke(newIndex);
+                _lockedPanel.SetActive(false);
+                _characterName.text = character.Name;
+                _characters.SelectPlayerCharacter(_playerId, _characterIndex);
+                _characterSelected?.Invoke(_characterIndex);
             }
 
             if (!_isCoroutineRunning)
                 StartCoroutine(ChangeCharacterIcon());
         }
 
-        private bool IsLocked(int index)
+        private void UnlockCharacter()
         {
-            return _characterList[index].Price > 0;
+            if (_characters.TryUnlock(_characterIndex, _playerWallet))
+                SelectCharacter(_characterIndex);
         }
 
         private IEnumerator ChangeCharacterIcon()
@@ -124,7 +130,7 @@ namespace Gui
                     color.a -= Time.deltaTime * _animationSpeed;
                     if (color.a <= minAlpha)
                     {
-                        color = IsLocked(characterIndex) ? Color.black : Color.white;
+                        color = _characters.IsLocked(characterIndex) ? Color.black : Color.white;
                         color.a = minAlpha;
                         var character = _characterList[characterIndex];
                         _characterIcon.sprite = character.Icon;
@@ -140,5 +146,7 @@ namespace Gui
 
             _isCoroutineRunning = false;
         }
+
+        private static int Repeat(int index, int length) => ((index %= length) < 0) ? index + length : index;
     }
 }

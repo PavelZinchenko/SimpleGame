@@ -3,17 +3,14 @@ using Zenject;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _prefab;
-    [SerializeField] private Transform[] _positions = { };
+    [Inject] private readonly CharacterSpawner _characterSpawner;
 
-    [Inject] private Services.GameObjectFactory _objectFactory;
+    [SerializeField] private Characters.CharacterConfigurator _prefab;
+    [SerializeField] private Transform[] _positions = { };
 
     public void Spawn()
     {
         foreach (var point in _positions)
-        {
-            var instance = _objectFactory.Create(_prefab);
-            instance.transform.position = point.position;
-        }
+            _characterSpawner.Spawn(_prefab, point.position);
     }
 }

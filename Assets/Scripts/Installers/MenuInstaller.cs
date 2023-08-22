@@ -5,11 +5,13 @@ namespace Installers
 {
     public class MenuInstaller : MonoInstaller<MenuInstaller>
     {
-        [SerializeField] private Model.GameSettings _gameSettings;
+        [SerializeField] private Settings.Characters _characters;
+        [SerializeField] private Settings.PlayerWallet _wallet;
 
         public override void InstallBindings()
         {
-            Container.Bind<Model.GameSettings>().FromInstance(_gameSettings);
+            Container.Bind<Settings.Characters>().FromInstance(_characters);
+            Container.Bind<Settings.PlayerWallet>().FromInstance(_wallet);
         }
     }
 }

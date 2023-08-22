@@ -5,19 +5,22 @@ using Characters;
 namespace Ai
 {
     [RequireComponent(typeof(PlayerStats))]
-    public class PlayerBehaviour : MonoBehaviour, ICharacterBehaviour
+    public class PlayerBehaviour : MonoBehaviour, ICharacterBehaviour, StateMachine.Character.ICallback
     {
         [SerializeField] private StateMachine.Character.StateMachine _character;
         [SerializeField] private float _screenBorderSize = 2f;
         [SerializeField] private float _hitCooldown = 1f;
 
+        private Camera _camera;
         private Vector2 _movingDirection;
         private float _lastHitTime;
         private PlayerStats _playerStats;
 
         private void Awake()
         {
+            _camera = Camera.main;
             _playerStats = GetComponent<PlayerStats>();
+            _character.SetCallback(this);
         }
 
         private void Update()
@@ -30,7 +33,6 @@ namespace Ai
 
         public void Die()
         {
-            _playerStats.Health = 0;
             _character.Die();
         }
 
@@ -56,11 +58,19 @@ namespace Ai
             _character.Jump(jump);
         }
 
+        public void OnFellDown()
+        {
+        }
+
+        public void OnDied()
+        {
+            _playerStats.Health = 0;
+        }
+
         private void ProcessBorders(Vector2 position, ref Vector2 direction)
         {
-            var camera = UnityEngine.Camera.main;
-            var cameraCenter = camera.transform.position;
-            var width = camera.orthographicSize * camera.aspect;
+            var cameraCenter = _camera.transform.position;
+            var width = _camera.orthographicSize * _camera.aspect;
             var left = cameraCenter.x - width;
             var right = cameraCenter.x + width;
 

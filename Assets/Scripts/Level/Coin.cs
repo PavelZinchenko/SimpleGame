@@ -6,7 +6,8 @@ namespace Level
 {
     public class Coin : MonoBehaviour
     {
-        [Inject] private Gui.Wallet _wallet;
+        [Inject] private Settings.PlayerWallet _wallet;
+        [Inject] private Gui.WalletPanel _walletPanel;
 
         [SerializeField] private float _smoothTime = 0.5f;
         [SerializeField] private float _minDistanceToWallet = 0.5f;
@@ -21,6 +22,7 @@ namespace Level
         public void Collect()
         {
             _collider.enabled = false;
+            _wallet.Coins++;
             StartCoroutine(MoveToWallet());
         }
 
@@ -33,7 +35,7 @@ namespace Level
 
             while (true)
             {
-                Vector2 target = _wallet.GetWorldPosition();
+                Vector2 target = _walletPanel.GetWorldPosition();
                 elapsedTime += Time.deltaTime;
                 position2d = Vector2.SmoothDamp(position2d, target, ref velocity, _smoothTime);
                 position.x = position2d.x;
@@ -44,7 +46,6 @@ namespace Level
                 yield return null;
             }
 
-            _wallet.AddCoin();
             Destroy(gameObject);
         }
     }

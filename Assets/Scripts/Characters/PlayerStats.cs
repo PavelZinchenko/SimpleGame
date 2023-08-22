@@ -10,6 +10,8 @@ namespace Characters
 
         private int _health;
 
+        public CharacterType Type => CharacterType.Player;
+
         public Sprite Icon => _character.Icon;
         
         public int Health

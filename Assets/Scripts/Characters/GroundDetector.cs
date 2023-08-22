@@ -1,17 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using Zenject;
 
 namespace Characters
 {
     public class GroundDetector : MonoBehaviour
     {
-        [Inject] private readonly LevelMap _levelMap;
-
         [SerializeField] private UnityEvent _leftGround;
         [SerializeField] private UnityEvent _gotToGround;
 
-        private Vector3Int _cell;
+        private Level.ILevelMap _levelMap;
+
         private bool _grounded = true;
 
         public bool Grounded 
@@ -29,14 +27,12 @@ namespace Characters
             }
         }
 
+        public void AssignLevelMap(Level.ILevelMap map) => _levelMap = map;
+
         private void Update()
         {
-            var position = transform.position;
-            var cell = _levelMap.WorldToCell(position);
-            if (cell == _cell) return;
-            _cell = cell;
-
-            Grounded = _levelMap.HasTile(cell);
+            if (_levelMap != null)
+                Grounded = _levelMap.HasFloor(transform.position);
         }
     }
 }
