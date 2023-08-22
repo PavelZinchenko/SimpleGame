@@ -1662,7 +1662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 232e64d0978bf6b4294dfebcf208e098, type: 2}
   m_Color: {r: 0.8584906, g: 0.77226454, b: 0.59527415, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2134,14 +2134,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2025006002}
     - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
-      propertyPath: _characterSelected.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
-      propertyPath: _characterSelected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
       propertyPath: _characterChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 63110691}
@@ -2153,14 +2145,6 @@ PrefabInstance:
       propertyPath: _characterSelected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1833408143}
-    - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
-      propertyPath: _characterSelected.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
-      propertyPath: _characterSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_interactable
-      objectReference: {fileID: 0}
     - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
       propertyPath: _lockedCharacterSelected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
@@ -2178,20 +2162,8 @@ PrefabInstance:
       value: set_interactable
       objectReference: {fileID: 0}
     - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
-      propertyPath: _characterSelected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.UI.Selectable, UnityEngine.UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
-      propertyPath: _characterSelected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
       propertyPath: _lockedCharacterSelected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.UI.Selectable, UnityEngine.UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
-      propertyPath: _characterSelected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2908164047446948558, guid: 698f4e660a754cd4ea4d8bc333805e71, type: 3}
       propertyPath: _lockedCharacterSelected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

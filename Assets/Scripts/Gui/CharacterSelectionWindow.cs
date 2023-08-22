@@ -25,6 +25,7 @@ namespace Gui
         [SerializeField] private string _hiddenCharacterName = "???";
 
         [SerializeField] private UnityEvent<int> _characterSelected;
+        [SerializeField] private UnityEvent<int> _characterUnlocked;
 
         private bool _activated;
         private bool _isCoroutineRunning;
@@ -91,7 +92,10 @@ namespace Gui
         private void UnlockCharacter()
         {
             if (_characters.TryUnlock(_characterIndex, _playerWallet))
+            {
                 SelectCharacter(_characterIndex);
+                _characterUnlocked.Invoke(_characterIndex);
+            }
         }
 
         private IEnumerator ChangeCharacterIcon()
