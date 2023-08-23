@@ -5363,7 +5363,7 @@ Tilemap:
       - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
-      m_AnimationSpeed: 6.0427322
+      m_AnimationSpeed: 7.2506857
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:

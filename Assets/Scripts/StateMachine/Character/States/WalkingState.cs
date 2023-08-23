@@ -10,11 +10,11 @@ namespace StateMachine.Character.States
         [SerializeField] private Rigidbody2D _rigidbody2D;
         [SerializeField] private Characters.AnimationController _animation;
 
-        private void Update()
+        private void FixedUpdate()
         {
             var velocity = _rigidbody2D.velocity;
             var desiredVelocity = Context.MovementDirection * _movementSpeed;
-            _rigidbody2D.AddForce(_acceleration * Time.deltaTime * (desiredVelocity - velocity));
+            _rigidbody2D.AddForce(_acceleration * Time.fixedDeltaTime * (desiredVelocity - velocity));
             _animation.Walk(velocity / _movementSpeed);
         }
     }
