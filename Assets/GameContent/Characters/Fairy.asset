@@ -15,5 +15,6 @@ MonoBehaviour:
   _prefab: {fileID: 2090460543871335997, guid: 89e6fb752d1b71c41bb3d427698e2ba5, type: 3}
   _name: Fairy
   _icon: {fileID: -2091562091, guid: 16f25fa299520db448fa8adb019086d9, type: 3}
+  _uiAnimation: {fileID: 9100000, guid: 53a864f68b538c74cb930cf63d8f03ab, type: 2}
   _hitPoints: 3
   _price: 100

@@ -16,6 +16,7 @@ namespace Gui
         [SerializeField] private GameObject _selectionPanel;
         [SerializeField] private GameObject _lockedPanel;
         [SerializeField] private Image _characterIcon;
+        [SerializeField] private Animator _characterAnimator;
         [SerializeField] private TMPro.TMP_Text _characterName;
         [SerializeField] private TMPro.TMP_Text _priceText;
         [SerializeField] private Characters.PlayableCharacterList _characterList;
@@ -134,10 +135,10 @@ namespace Gui
                     color.a -= Time.deltaTime * _animationSpeed;
                     if (color.a <= minAlpha)
                     {
-                        color = _characters.IsLocked(characterIndex) ? Color.black : Color.white;
+                        var locked = _characters.IsLocked(characterIndex);
+                        color = locked ? Color.black : Color.white;
                         color.a = minAlpha;
-                        var character = _characterList[characterIndex];
-                        _characterIcon.sprite = character.Icon;
+                        ShowCharacterIcon(characterIndex, locked);
                         iconChanged = true;
                     }
                 }
@@ -149,6 +150,13 @@ namespace Gui
             }
 
             _isCoroutineRunning = false;
+        }
+
+        private void ShowCharacterIcon(int characterIndex, bool locked)
+        {
+            var character = _characterList[characterIndex];
+            _characterAnimator.runtimeAnimatorController = locked ? null : character.UiAnimation;
+            _characterIcon.sprite = character.Icon;
         }
 
         private static int Repeat(int index, int length) => ((index %= length) < 0) ? index + length : index;

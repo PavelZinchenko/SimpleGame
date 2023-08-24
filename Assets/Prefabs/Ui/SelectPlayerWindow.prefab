@@ -228,6 +228,7 @@ MonoBehaviour:
   _selectionPanel: {fileID: 2908164047513974099}
   _lockedPanel: {fileID: 6762209895557770535}
   _characterIcon: {fileID: 2908164047865391771}
+  _characterAnimator: {fileID: 4756707766810300420}
   _characterName: {fileID: 2908164047469888003}
   _priceText: {fileID: 4521597056549485528}
   _characterList: {fileID: 11400000, guid: 5a0f53e0fe05e934f835692765406ec4, type: 2}
@@ -844,6 +845,7 @@ GameObject:
   - component: {fileID: 2908164047865391768}
   - component: {fileID: 2908164047865391770}
   - component: {fileID: 2908164047865391771}
+  - component: {fileID: 4756707766810300420}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -909,6 +911,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &4756707766810300420
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2908164047865391769}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2908164049513898241
 GameObject:
   m_ObjectHideFlags: 0

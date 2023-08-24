@@ -15,4 +15,6 @@ MonoBehaviour:
   _prefab: {fileID: 7259124375565227607, guid: a7675813dbed5fd4d944c35ba19fa2de, type: 3}
   _name: Virtual Guy
   _icon: {fileID: 21300000, guid: 320f4eb52e227b446830a1f6fd691fca, type: 3}
+  _uiAnimation: {fileID: 9100000, guid: a43fb7884d4198e43a993dfa1e76ad92, type: 2}
   _hitPoints: 3
+  _price: 0
