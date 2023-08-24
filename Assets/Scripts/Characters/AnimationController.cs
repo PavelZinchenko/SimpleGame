@@ -39,11 +39,13 @@ namespace Characters
 
         public void Hit()
         {
+            SetGrounded(true);
             _animator.SetTrigger(_hit);
         }
 
         public void Die()
         {
+            SetGrounded(true);
             _animator.SetBool(_dead, true);
         }
     }

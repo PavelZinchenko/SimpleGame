@@ -11,6 +11,12 @@ namespace Characters
         private SpriteRenderer _spriteRenderer;
         private Color _defaultColor;
 
+        public bool Visible
+        {
+            get => _spriteRenderer.enabled;
+            set => _spriteRenderer.enabled = value;
+        }
+
         public void SetAltitude(float altitude)
         {
             SetOpacity(altitude < 0 ? 0 : (_maxAltitude - altitude) / _maxAltitude);

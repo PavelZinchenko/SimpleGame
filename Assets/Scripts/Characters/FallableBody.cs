@@ -15,41 +15,12 @@ namespace Characters
         [SerializeField] private UnityEvent _jumped;
         [SerializeField] private UnityEvent _landed;
         [SerializeField] private UnityEvent _fallingUnderground;
+        [SerializeField] private UnityEvent _fallenDown;
 
         private bool _isRunning;
         private bool _hasGround = true;
         private float _altitude;
         private float _speed;
-
-        public event UnityAction<float> AltitudeChanged
-        {
-            add => (_altitudeChanged ??= new()).AddListener(value);
-            remove => _altitudeChanged.RemoveListener(value);
-        }
-
-        public event UnityAction<float> SpeedChanged
-        {
-            add => (_speedChanged ??= new()).AddListener(value);
-            remove => _speedChanged.RemoveListener(value);
-        }
-
-        public event UnityAction Jumped
-        {
-            add => (_jumped ??= new()).AddListener(value);
-            remove => _jumped.RemoveListener(value);
-        }
-
-        public event UnityAction Landed
-        {
-            add => (_landed ??= new()).AddListener(value);
-            remove => _landed.RemoveListener(value);
-        }
-
-        public event UnityAction FallingUnderground
-        {
-            add => (_fallingUnderground ??= new()).AddListener(value);
-            remove => _fallingUnderground.RemoveListener(value);
-        }
 
         public bool IsStanding => !_isRunning;
         public bool IsAboveGround => _altitude >= _groundAltitude;
@@ -132,7 +103,10 @@ namespace Characters
             _speed = 0f;
             _isRunning = false;
 
-            _landed?.Invoke();
+            if (_altitude >= _groundAltitude)
+                _landed?.Invoke();
+            else
+                _fallenDown.Invoke();
         }
 
         private void EnsureCoroutineRunning()

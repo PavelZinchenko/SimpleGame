@@ -7074,7 +7074,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _names:
-  - MenuScene
+  - LevelBaseScene
+  - Level1
 --- !u!4 &1451430253
 Transform:
   m_ObjectHideFlags: 0

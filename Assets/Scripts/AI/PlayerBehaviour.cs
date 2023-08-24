@@ -8,7 +8,8 @@ namespace Ai
     public class PlayerBehaviour : MonoBehaviour, ICharacterBehaviour, StateMachine.Character.ICallback
     {
         [SerializeField] private StateMachine.Character.StateMachine _character;
-        [SerializeField] private float _screenBorderSize = 2f;
+        [SerializeField] private float _screenBorderSizeX = 2f;
+        [SerializeField] private float _screenBorderSizeY = 0f;
         [SerializeField] private float _hitCooldown = 1f;
 
         private Camera _camera;
@@ -70,15 +71,23 @@ namespace Ai
         private void ProcessBorders(Vector2 position, ref Vector2 direction)
         {
             var cameraCenter = _camera.transform.position;
-            var width = _camera.orthographicSize * _camera.aspect;
+            var height = _camera.orthographicSize;
+            var width = height * _camera.aspect;
             var left = cameraCenter.x - width;
             var right = cameraCenter.x + width;
+            var top = cameraCenter.y + height;
+            var bottom = cameraCenter.y - height;
 
-            if (position.x < left + _screenBorderSize)
-                direction.x = Mathf.Lerp(direction.x, 1f, Mathf.Clamp01(left + _screenBorderSize - position.x));
-            if (position.x > right - _screenBorderSize)
-                direction.x = Mathf.Lerp(direction.x, -1f, Mathf.Clamp01(position.x - right + _screenBorderSize));
+            const float maxSpeed = 1f;
+
+            if (position.x < left + _screenBorderSizeX)
+                direction.x = Mathf.Lerp(direction.x, maxSpeed, Mathf.Clamp01(left + _screenBorderSizeX - position.x));
+            if (position.y < bottom + _screenBorderSizeY)
+                direction.y = Mathf.Lerp(direction.y, maxSpeed, Mathf.Clamp01(bottom + _screenBorderSizeY - position.y));
+            if (position.x > right - _screenBorderSizeX)
+                direction.x = Mathf.Lerp(direction.x, -maxSpeed, Mathf.Clamp01(position.x - right + _screenBorderSizeX));
+            if (position.y > top - _screenBorderSizeY)
+                direction.y = Mathf.Lerp(direction.y, -maxSpeed, Mathf.Clamp01(position.y - top + _screenBorderSizeY));
         }
     }
 }
-
