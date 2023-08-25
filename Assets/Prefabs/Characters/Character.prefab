@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 4703775071960499278}
   _screenBorderSizeX: 2
-  _screenBorderSizeY: 0
+  _screenBorderSizeY: 1
   _hitCooldown: 1
 --- !u!114 &3314162063975630288
 MonoBehaviour:

@@ -4,6 +4,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float _speed = 2;
+    [SerializeField] private float _scaleY = 0.5f;
 
     private readonly List<Transform> _targets = new();
 
@@ -20,13 +21,10 @@ public class CameraController : MonoBehaviour
             targetPosition = cameraPosition;
 
         var fixedX = cameraPosition.x + FixedSpeedX * Time.deltaTime;
-        var targetX = Mathf.Lerp(cameraPosition.x, targetPosition.x, Time.deltaTime * _speed);
+        var target = Vector2.Lerp(cameraPosition, targetPosition, Time.deltaTime * _speed);
 
-        if (FixedSpeedX >= 0)
-            cameraPosition.x = Mathf.Max(fixedX, targetX);
-        else
-            cameraPosition.x = Mathf.Min(fixedX, targetX);
-
+        cameraPosition.y = target.y;
+        cameraPosition.x = FixedSpeedX >= 0 ? Mathf.Max(fixedX, target.x) : Mathf.Min(fixedX, target.x);
         transform.localPosition = cameraPosition;
     }
 
@@ -45,7 +43,7 @@ public class CameraController : MonoBehaviour
             targetCount++;
             var targetPosition = item.position;
             position.x += targetPosition.x;
-            position.y += targetPosition.y;
+            position.y += targetPosition.y * _scaleY;
         }
 
         if (targetCount == 0) 
