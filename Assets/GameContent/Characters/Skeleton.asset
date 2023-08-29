@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f394400231fce54fb2ddaf4f2c8bb2d, type: 3}
+  m_Name: Skeleton
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 6404506692900946661, guid: 42e7956b851ce5b479d89fcf24b5a479, type: 3}
+  _name: Skeleton
+  _icon: {fileID: -1187069403, guid: c3d651eb9dff7eb45bc4ff78be0dc1dc, type: 3}
+  _uiAnimation: {fileID: 9100000, guid: d84aedad57d25434fb7dda14acd066ee, type: 2}
+  _hitPoints: 5
+  _price: 1500

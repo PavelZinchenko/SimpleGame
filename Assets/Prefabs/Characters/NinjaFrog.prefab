@@ -229,8 +229,8 @@ MonoBehaviour:
   _exiting:
     m_PersistentCalls:
       m_Calls: []
-  _movementSpeed: 4.5
-  _acceleration: 1000
+  _movementSpeed: 4
+  _acceleration: 500
   _rigidbody2D: {fileID: 7433698300321629697}
   _animation: {fileID: 1477609270593552645}
 --- !u!1 &7240808418962648856 stripped

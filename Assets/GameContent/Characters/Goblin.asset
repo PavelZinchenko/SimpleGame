@@ -17,4 +17,4 @@ MonoBehaviour:
   _icon: {fileID: 1418927062, guid: 53446137c3b740e4189ebc577a045abb, type: 3}
   _uiAnimation: {fileID: 9100000, guid: 9d139a37cd628894592eb03884c2e5e5, type: 2}
   _hitPoints: 4
-  _price: 10
+  _price: 25

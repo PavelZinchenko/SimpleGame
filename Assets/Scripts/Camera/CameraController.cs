@@ -8,10 +8,12 @@ public class CameraController : MonoBehaviour
 
     private readonly List<Transform> _targets = new();
 
+    private bool _freezeX;
+
     public float FixedSpeedX { get; set; }
     public bool TrackingDisabled { get; set; }
-    public void Freeze() => enabled = false;
-    public void Unfreeze() => enabled = true;
+    public void Freeze() => _freezeX = true;
+    public void Unfreeze() => _freezeX = false;
 
     private void Update()
     {
@@ -24,7 +26,9 @@ public class CameraController : MonoBehaviour
         var target = Vector2.Lerp(cameraPosition, targetPosition, Time.deltaTime * _speed);
 
         cameraPosition.y = target.y;
-        cameraPosition.x = FixedSpeedX >= 0 ? Mathf.Max(fixedX, target.x) : Mathf.Min(fixedX, target.x);
+        if (!_freezeX)
+            cameraPosition.x = FixedSpeedX >= 0 ? Mathf.Max(fixedX, target.x) : Mathf.Min(fixedX, target.x);
+
         transform.localPosition = cameraPosition;
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 namespace Level
@@ -9,44 +10,41 @@ namespace Level
         [Inject] private Settings.PlayerWallet _wallet;
         [Inject] private Gui.WalletPanel _walletPanel;
 
+        [SerializeField] private int _value = 1;
         [SerializeField] private float _smoothTime = 0.5f;
         [SerializeField] private float _minDistanceToWallet = 0.5f;
-        [SerializeField] private Collider2D _collider;
-        [SerializeField] private Animator _animator;
 
-        private void Start()
-        {
-            _animator.speed = 1f + Random.value * 0.5f;
-        }
+        [SerializeField] private UnityEvent _collecting;
+        [SerializeField] private UnityEvent _collected;
 
         public void Collect()
         {
-            _collider.enabled = false;
-            _wallet.Coins++;
+            _collecting?.Invoke();
+            _wallet.Coins += _value;
             StartCoroutine(MoveToWallet());
         }
 
         private IEnumerator MoveToWallet()
         {
             var position = transform.position;
-            var position2d = (Vector2)position;
             var velocity = Vector2.zero;
             var elapsedTime = 0f;
+            var offset = (Vector2)position - (Vector2)_walletPanel.GetWorldPosition();
 
             while (true)
             {
-                Vector2 target = _walletPanel.GetWorldPosition();
+                Vector2 walletPosition = _walletPanel.GetWorldPosition();
                 elapsedTime += Time.deltaTime;
-                position2d = Vector2.SmoothDamp(position2d, target, ref velocity, _smoothTime);
-                position.x = position2d.x;
-                position.y = position2d.y;
+                offset = Vector2.SmoothDamp(offset, Vector2.zero, ref velocity, _smoothTime);
+                position.x = walletPosition.x + offset.x;
+                position.y = walletPosition.y + offset.y;
                 transform.position = position;
 
-                if (Vector2.Distance(position2d, target) <= _minDistanceToWallet) break;
+                if (offset.magnitude <= _minDistanceToWallet) break;
                 yield return null;
             }
 
-            Destroy(gameObject);
+            _collected?.Invoke();
         }
     }
 }

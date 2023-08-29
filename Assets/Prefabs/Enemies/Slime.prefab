@@ -105,7 +105,7 @@ MonoBehaviour:
   _character: {fileID: 4798663066027701046}
   _targetMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 65536
   _feet: {fileID: 6905521021448621689}
 --- !u!114 &4014858813938628201
 MonoBehaviour:

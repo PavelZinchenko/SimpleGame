@@ -199,7 +199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8589335223054666010, guid: ed5d0a8120455b74883201e72314ee19, type: 3}
       propertyPath: _acceleration
-      value: 500
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 8589335223054666010, guid: ed5d0a8120455b74883201e72314ee19, type: 3}
       propertyPath: _movementSpeed
@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1897597080}
-  _timeInterval: 2
-  _randomRange: 1
+  _timeInterval: 1
+  _randomRange: 0.2
 --- !u!114 &4629991337699717647 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6022752161331275689, guid: ed5d0a8120455b74883201e72314ee19, type: 3}

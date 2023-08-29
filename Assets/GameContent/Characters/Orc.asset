@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Orc
   m_EditorClassIdentifier: 
   _prefab: {fileID: 2090460543871335997, guid: 303a5aab75745644bb5c72b4f7bc812a, type: 3}
-  _name: Orc
+  _name: Ogre
   _icon: {fileID: -391213905, guid: 1860634e1af5c9243a6c46ee979b5c80, type: 3}
   _uiAnimation: {fileID: 9100000, guid: 0d274e2d699efd74ebdb19493300545d, type: 2}
   _hitPoints: 3
-  _price: 200
+  _price: 500
