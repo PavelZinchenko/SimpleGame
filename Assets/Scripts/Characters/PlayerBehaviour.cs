@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Characters;
 
-namespace Ai
+namespace Characters
 {
     [RequireComponent(typeof(PlayerStats))]
     public class PlayerBehaviour : MonoBehaviour, ICharacterBehaviour, StateMachine.Character.ICallback

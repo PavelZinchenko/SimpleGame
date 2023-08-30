@@ -5,7 +5,7 @@ namespace Characters
 {
     public class PlayerStats : MonoBehaviour, ICharacterStats
     {
-        [SerializeField] private PlayableCharacterData _character;
+        [SerializeField] private Content.PlayableCharacterData _character;
         [SerializeField] private UnityEvent<int> _healthChanged;
 
         private int _health;

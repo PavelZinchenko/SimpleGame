@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Characters
+namespace Content
 {
     [CreateAssetMenu(fileName = "CharacterList", menuName = "ScriptableObjects/CharacterList", order = 1)]
     public class PlayableCharacterList : ScriptableObject

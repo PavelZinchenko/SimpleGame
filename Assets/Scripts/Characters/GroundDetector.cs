@@ -8,7 +8,7 @@ namespace Characters
         [SerializeField] private UnityEvent _leftGround;
         [SerializeField] private UnityEvent _gotToGround;
 
-        private Level.ILevelMap _levelMap;
+        private GameLevel.ILevelMap _levelMap;
 
         private bool _grounded = true;
 
@@ -27,7 +27,7 @@ namespace Characters
             }
         }
 
-        public void AssignLevelMap(Level.ILevelMap map) => _levelMap = map;
+        public void AssignLevelMap(GameLevel.ILevelMap map) => _levelMap = map;
 
         private void Update()
         {

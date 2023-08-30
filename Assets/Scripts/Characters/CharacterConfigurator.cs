@@ -7,7 +7,7 @@ namespace Characters
     [RequireComponent(typeof(ICharacterStats))]
     public class CharacterConfigurator : MonoBehaviour
     {
-        [InjectOptional] private readonly Level.ILevelMap _levelMap;
+        [InjectOptional] private readonly GameLevel.ILevelMap _levelMap;
         [SerializeField] private GroundDetector _groundDetector;
 
         private ICharacterStats _stats;
@@ -22,7 +22,7 @@ namespace Characters
                 AssignLevelMap(_levelMap);
         }
 
-        public void AssignLevelMap(Level.ILevelMap map)
+        public void AssignLevelMap(GameLevel.ILevelMap map)
         {
             _groundDetector?.AssignLevelMap(map);
         }

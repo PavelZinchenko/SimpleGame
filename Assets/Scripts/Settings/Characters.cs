@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Characters;
 
 namespace Settings
 {
@@ -13,7 +12,7 @@ namespace Settings
 
     public class Characters : MonoBehaviour
     {
-        [SerializeField] private PlayableCharacterList _characterList;
+        [SerializeField] private Content.PlayableCharacterList _characterList;
 
         private readonly HashSet<int> _unlockedCharacters = new();
 
@@ -63,7 +62,7 @@ namespace Settings
             return character != null && character.Price > 0 && !_unlockedCharacters.Contains(characterId);
         }
 
-        public PlayableCharacterData GetPlayerCharacter(PlayerId playerId)
+        public Content.PlayableCharacterData GetPlayerCharacter(PlayerId playerId)
         {
             switch (playerId)
             {

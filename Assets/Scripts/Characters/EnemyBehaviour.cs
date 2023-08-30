@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Ai
+namespace Characters
 {
     public class EnemyBehaviour : MonoBehaviour, ICharacterBehaviour
     {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Level
+namespace GameLevel
 {
     public class LevelMap : MonoBehaviour, ILevelMap
     {

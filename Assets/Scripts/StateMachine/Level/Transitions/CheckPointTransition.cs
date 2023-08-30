@@ -5,7 +5,7 @@ namespace StateMachine.Level.Transitions
 {
     public class CheckPointTransition : Base.Transition<Context>
     {
-        [Inject] private readonly CameraController _camera;
+        [Inject] private readonly GameLevel.CameraController _camera;
 
         [SerializeField] private Transform _checkpoint;
         [SerializeField] private bool _canTriggerMultipleTimes;

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
 
-namespace Level
+namespace GameLevel
 {
     public class Coin : MonoBehaviour
     {

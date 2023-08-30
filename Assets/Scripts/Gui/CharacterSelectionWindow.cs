@@ -19,7 +19,7 @@ namespace Gui
         [SerializeField] private Animator _characterAnimator;
         [SerializeField] private TMPro.TMP_Text _characterName;
         [SerializeField] private TMPro.TMP_Text _priceText;
-        [SerializeField] private Characters.PlayableCharacterList _characterList;
+        [SerializeField] private Content.PlayableCharacterList _characterList;
 
         [SerializeField] private Settings.PlayerId _playerId;
         [SerializeField] private float _animationSpeed = 5;

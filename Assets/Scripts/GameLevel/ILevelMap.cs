@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Level
+namespace GameLevel
 {
     public enum TileType
     {

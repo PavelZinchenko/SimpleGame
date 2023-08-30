@@ -9,7 +9,7 @@ namespace Installers
         [SerializeField] private Settings.PlayerWallet _playerWallet;
         [SerializeField] private Gui.WalletPanel _wallet;
         [SerializeField] private Gui.GameOverPanel _gameOverPanel;
-        [SerializeField] private CharacterSpawner _characterSpawner;
+        [SerializeField] private GameLevel.CharacterSpawner _characterSpawner;
 
         public override void InstallBindings()
         {
@@ -17,7 +17,7 @@ namespace Installers
             Container.Bind<Settings.PlayerWallet>().FromInstance(_playerWallet);
             Container.Bind<Gui.WalletPanel>().FromInstance(_wallet);
             Container.Bind<Gui.GameOverPanel>().FromInstance(_gameOverPanel);
-            Container.Bind<CharacterSpawner>().FromInstance(_characterSpawner);
+            Container.Bind<GameLevel.CharacterSpawner>().FromInstance(_characterSpawner);
         }
     }
 }
